@@ -10,8 +10,10 @@ import { ThemeProvider } from "@/components/theme-provicer";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "Normal Human",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  title: "OMNIBOX - AI-Powered Email Client",
+  description:
+    "OMNIBOX is a minimalistic, AI-powered email client that empowers you to manage your email with ease",
+  icons: [{ rel: "icon", url: "/favico.ico" }],
 };
 
 export default function RootLayout({
