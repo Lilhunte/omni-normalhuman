@@ -29,7 +29,7 @@ class Account {
     async createSubscription() {
         const webhookUrl =
           process.env.NODE_ENV === "development"
-            ? "https://hiking-cement-venues-goat.trycloudflare.com"
+            ? "https://omni-normalhuman-5yr7.vercel.app"
             : process.env.NEXT_PUBLIC_URL;
         const res = await axios.post('https://api.aurinko.io/v1/subscriptions',
             {
@@ -110,8 +110,8 @@ class Account {
     async performInitialSync() {
         try {
             // Start the sync process
-            const daysWithin = 5
-            let syncResponse = await this.startSync(daysWithin); // Sync emails from the last 5 days
+            const daysWithin = 10;
+            let syncResponse = await this.startSync(daysWithin); // Sync emails from the last 10 days
 
             // Wait until the sync is ready
             while (!syncResponse.ready) {

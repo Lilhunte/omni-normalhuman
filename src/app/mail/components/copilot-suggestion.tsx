@@ -1,8 +1,15 @@
 import Quill from 'quill';
 
-const Embed = Quill.import('blots/embed');
 
-export class CopilotSuggestion extends Embed {
+interface EmbedConstructor {
+  new (...args: any[]): any;
+}
+
+const Embed = Quill.import("blots/embed") as EmbedConstructor;
+const MyEmbed = new Embed();
+
+
+export class CopilotSuggestion extends MyEmbed {
     static blotName = 'copilot-suggestion';
     static tagName = 'span';
 

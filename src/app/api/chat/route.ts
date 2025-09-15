@@ -55,7 +55,7 @@ When responding, please keep in mind:
 - Keep your responses concise and relevant to the user's questions or the email being composed.`;
 
     const { textStream } = await streamText({
-      model: openai("gpt-5"),
+      model: openai("gpt-4"),
       system: systemPrompt,
       messages,
     });

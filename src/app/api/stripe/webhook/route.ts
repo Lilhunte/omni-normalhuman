@@ -51,7 +51,9 @@ export async function POST(req: Request) {
         productId: productId,
         priceId: plan.id,
         customerId: subscription.customer as string,
-        currentPeriodEnd: new Date(subscription.items.data[0]?.current_period_end * 1000),
+        currentPeriodEnd: new Date(
+          (subscription.items.data[0]?.current_period_end as number) * 1000,
+        ),
         userId: session.client_reference_id,
       },
     });
@@ -80,7 +82,7 @@ export async function POST(req: Request) {
       },
       data: {
         currentPeriodEnd: new Date(
-          subscription.items.data[0]?.current_period_end * 1000,
+          (subscription.items.data[0]?.current_period_end as number) * 1000,
         ),
         productId: productId,
         priceId: plan.id,
@@ -101,7 +103,7 @@ export async function POST(req: Request) {
       data: {
         updatedAt: new Date(),
         currentPeriodEnd: new Date(
-          subscription.items.data[0]?.current_period_end * 1000,
+          (subscription.items.data[0]?.current_period_end as number) * 1000,
         ),
       },
     });
