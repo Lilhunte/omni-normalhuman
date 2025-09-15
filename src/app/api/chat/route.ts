@@ -55,7 +55,7 @@ When responding, please keep in mind:
 - Keep your responses concise and relevant to the user's questions or the email being composed.`;
 
     const { textStream } = await streamText({
-      model: openai("gpt-4"),
+      model: openai("gpt-5"),
       system: systemPrompt,
       messages,
     });
@@ -78,6 +78,9 @@ When responding, please keep in mind:
     });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Something went wrong, please try again." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong, please try again." },
+      { status: 500 },
+    );
   }
 }

@@ -16,7 +16,7 @@ export default async function MailPage() {
   return (
     <>
       <div className="flex-col hidden md:flex h-screen overflow-scroll">
-        <div className='absolute flex items-center bottom-4 left-4'>
+        <div className='absolute flex items-center top-0.3 right-49 gap-1'>
           <UserButton />
           <ModeToggle />
           <ComposeButton />

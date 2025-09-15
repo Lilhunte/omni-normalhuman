@@ -110,8 +110,8 @@ class Account {
     async performInitialSync() {
         try {
             // Start the sync process
-            const daysWithin = 3
-            let syncResponse = await this.startSync(daysWithin); // Sync emails from the last 7 days
+            const daysWithin = 5
+            let syncResponse = await this.startSync(daysWithin); // Sync emails from the last 5 days
 
             // Wait until the sync is ready
             while (!syncResponse.ready) {

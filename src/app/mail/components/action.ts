@@ -2,7 +2,7 @@
 
 import { streamText } from 'ai';
 import { openai } from '@ai-sdk/openai';
-import { createStreamableValue } from 'ai/rsc';
+import { createStreamableValue } from '@ai-sdk/rsc';
 
 export async function generate(input: string) {
     const stream = createStreamableValue('');
@@ -10,7 +10,7 @@ export async function generate(input: string) {
     console.log("input", input);
     (async () => {
         const { textStream } = await streamText({
-            model: openai('gpt-4o-mini'),
+            model: openai('gpt-5'),
             prompt: `
             You are a helpful AI embedded in a email client app that is used to answer questions about the emails in the inbox.
             ${input}

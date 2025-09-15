@@ -6,7 +6,7 @@ import { db } from "@/server/db";
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = headers().get("Stripe-Signature") as string;
+  const signature = (await headers()).get("Stripe-Signature") as string;
   let event: Stripe.Event;
 
   try {
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
         productId: productId,
         priceId: plan.id,
         customerId: subscription.customer as string,
-        currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+        currentPeriodEnd: new Date(subscription.items.data[0]?.current_period_end * 1000),
         userId: session.client_reference_id,
       },
     });
@@ -79,7 +79,9 @@ export async function POST(req: Request) {
         subscriptionId: subscription.id,
       },
       data: {
-        currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+        currentPeriodEnd: new Date(
+          subscription.items.data[0]?.current_period_end * 1000,
+        ),
         productId: productId,
         priceId: plan.id,
       },
@@ -98,7 +100,9 @@ export async function POST(req: Request) {
       },
       data: {
         updatedAt: new Date(),
-        currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+        currentPeriodEnd: new Date(
+          subscription.items.data[0]?.current_period_end * 1000,
+        ),
       },
     });
     return NextResponse.json({ message: "success" }, { status: 200 });

@@ -99,7 +99,7 @@ const AskAI = ({ isCollapsed }: { isCollapsed: boolean }) => {
       <div className="h-4"></div>
       <motion.div className="flex flex-1 flex-col items-end justify-end rounded-lg border bg-gray-100 p-4 pb-4 shadow-inner dark:bg-gray-900">
         <div
-          className="flex max-h-[50vh] w-full flex-col gap-2 overflow-y-scroll"
+          className="flex max-h-[40vh] w-full flex-col gap-2 overflow-y-scroll"
           id="message-container"
         >
           <AnimatePresence mode="wait">
@@ -162,7 +162,7 @@ const AskAI = ({ isCollapsed }: { isCollapsed: boolean }) => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="relative flex w-full">
+          <form onSubmit={handleSubmit} className="relative w-full flex">
             <input
               type="text"
               onChange={handleInputChange}

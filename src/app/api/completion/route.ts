@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   const { prompt } = await req.json();
 
   const { textStream } = await streamText({
-    model: openai("gpt-3.5-turbo"),
+    model: openai("gpt-5"),
     messages: [
       {
         role: "system",
