@@ -126,7 +126,7 @@ export const mailRouter = createTRPCRouter({
             },
           },
         },
-        take: 30,
+        take: 100,
         orderBy: {
           lastMessageDate: "desc",
         },
@@ -411,7 +411,7 @@ export const mailRouter = createTRPCRouter({
           address: true,
           name: true,
         },
-        take: 35,
+        take: 100,
       });
     }),
   getMyAccount: protectedProcedure

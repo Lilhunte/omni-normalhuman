@@ -29,7 +29,7 @@ class Account {
     async createSubscription() {
         const webhookUrl =
           process.env.NODE_ENV === "development"
-            ? "https://omni-normalhuman-5yr7.vercel.app"
+            ? "https://localhost:3000"
             : process.env.NEXT_PUBLIC_URL;
         const res = await axios.post('https://api.aurinko.io/v1/subscriptions',
             {
