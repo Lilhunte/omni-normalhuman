@@ -1,5 +1,4 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { sign } from "crypto";
 
 const isPublicRoute = createRouteMatcher([
   "/",

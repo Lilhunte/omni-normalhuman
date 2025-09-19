@@ -68,9 +68,10 @@ When responding, please keep in mind:
 
     // After stream completes, update interaction count
     const today = new Date().toDateString();
-    await db.chatbotInteraction.update({
+    await db.chatbotInteraction.upsert({
       where: { userId, day: today },
-      data: { count: { increment: 1 } },
+      update: { count: { increment: 1 } },
+      create: { day: today, count: 1, userId },
     });
 
     return new Response(result, {
